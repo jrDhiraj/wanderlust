@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 const methodOverride = require('method-override');
 const engine = require('ejs-mate');
-const ExpressError = require('./utils/ExpressError');
+const ExpressError = require('./utils/expressError');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
