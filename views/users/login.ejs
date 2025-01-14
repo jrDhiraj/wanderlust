@@ -1,0 +1,59 @@
+<% layout('/layouts/boilerplate') %>
+
+<!-- Make sure you are including Bootstrap CSS here -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<body>
+    
+<h1>Login</h1>
+
+<!-- Form with Bootstrap classes for validation -->
+<form action="/login" method="POST"  novalidate>
+    <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username"  required>
+        <div class="invalid-feedback">
+            Please enter your username.
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password"  required>
+        <div class="invalid-feedback">
+            Please enter your password.
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Log in</button>
+</form>
+
+<p>Create new Account <a href="/signup">Signup</a></p>
+
+<!-- Include Bootstrap JS and Popper.js for validation -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Custom JavaScript for form validation -->
+<script>
+    (() => {
+        'use strict';
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation');
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+
+                form.classList.add('was-validated');
+            }, false);
+        });
+    })();
+</script>
+
+</body>

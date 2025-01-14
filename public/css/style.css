@@ -1,0 +1,503 @@
+Global Body Styling
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+body a {
+    text-decoration: none;
+    color: #050505;
+    font-weight: 500;
+    transition: color 0.3s ease, text-shadow 0.3s;
+}
+
+/* Heading Styles */
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin: 40px 0;
+    font-size: 2.8em;
+    font-weight: 700;
+}
+
+/* Unordered List Styles */
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style-type: none;
+    margin: 10px 0;
+    padding: 5px;
+}
+
+/* Navbar Styles */
+.navbar {
+    margin-top: -5rem;
+    font-size: 1rem;
+}
+
+.navbar-brand img {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    width: 3rem;
+    height: 3rem;
+}
+
+.navbar-nav .nav-link {
+    margin: 0 10px;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #1ee553;
+}
+
+.dropdown .btn {
+    font-weight: 500;
+    color: #555;
+}
+
+.dropdown .dropdown-menu {
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown .dropdown-item {
+    color: #555;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown .dropdown-item:hover {
+    background-color: #1abc9c;
+    color: white;
+}
+
+/* Container Styling */
+.container {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Card Styling */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+/* Card Hover Effect */
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* Card Image Styling */
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Card Body Styling */
+.card-body {
+    background-color: #fff;
+}
+
+/* Card Title */
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #141313;
+    margin-bottom: 10px;
+}
+
+/* Card Text (Description) */
+.card-text {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Button Styling */
+.btn {
+    text-align: center;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Button Hover Effect */
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Edit Button Styling */
+.btn-edit {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-edit:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 91, 179, 0.2);
+}
+
+/* Professional Form Styling */
+form {
+    max-width: 50rem;     
+    margin: -40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+}
+
+.review-form{
+    max-width: 30rem;     
+    margin: -40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+/* Form Header */
+form h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+/* Input Fields */
+form input, form textarea, form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input:focus, form textarea:focus, form select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+/* Submit Button */
+form button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s, box-shadow 0.2s;
+}
+
+form button[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 91, 179, 0.2);
+}
+
+/* Form Labels */
+form label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Error Message Styling */
+.form-error {
+    color: #dc3545;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+/* Success Message Styling */
+.form-success {
+    color: #28a745;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #2c3e50;
+    color: #f4f4f9;
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: 40px;
+}
+
+footer a {
+    color: #1abc9c;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease, text-shadow 0.3s;
+}
+
+footer a:hover {
+    color: #16a085;
+    text-shadow: 0 1px 4px rgba(22, 160, 133, 0.6);
+}
+
+footer .social-icons {
+    margin-top: 20px;
+}
+
+footer .social-icons a {
+    margin: 0 10px;
+    font-size: 1.5em;
+    color: #1abc9c;
+    transition: color 0.3s ease, transform 0.3s;
+}
+
+footer .social-icons a:hover {
+    color: #16a085;
+    transform: scale(1.2);
+}
+
+footer p {
+    margin: 10px 0 0;
+    font-size: 0.85em;
+}
+
+/* Responsive Design: Mobile Friendly */
+@media (max-width: 767px) {
+    .container {
+        margin-top: 20px;
+        flex-direction: column;
+    }
+
+    .card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    /* Form styling for smaller screens */
+    form {
+        width: 90%;
+        padding: 20px;
+    }
+
+    form h2 {
+        font-size: 1.5rem;
+    }
+
+    form input, form textarea, form select {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    form button[type="submit"] {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}
+
+/* Review Section Styling */
+.review {
+    width: 20rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.reviews{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+/* Image Styling */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 30px auto;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* Dropdown Menu Styling */
+.dropdown-menu {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+    padding: 10px 15px;
+    color: #555;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #1abc9c;
+    color: white;
+}
+
+.show {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.information {
+    width: 10rem;
+}
+
+.btn-delete {
+    width: 4rem;
+}
+
+.btn-delete form {
+    width: 8rem;
+}
+
+.show .header-of-img .main .show-img img {
+    height: 30rem;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  .filter-item {
+    margin-right: 20px;
+    margin-bottom: 10px;
+  }
+  .filter-item select, .filter-item button {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .filter-item select {
+    width: 160px;
+  }
+  .filter-item button {
+    display: flex;
+    align-items: center;
+  }
+  .filter-item i {
+    margin-right: 8px;
+  }
+  .filter-item .reset-btn {
+    background-color: #f44336;
+    color: white;
+  }
+  .filter-item .apply-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.input-group {
+    display: flex;
+    max-width: 400px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styling for input field */
+  .input-group .form-control {
+    border: 1px solid #ccc;
+    border-radius: 8px 0 0 8px;
+    padding: 10px;
+    font-size: 14px;
+    width: 100%; /* Take full width */
+  }
+  
+  /* Button container */
+  .input-group-append {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 8px 8px 0;
+    background-color: #f8f9fa;
+  }
+  
+  /* Styling for button */
+  .input-group-append .btn {
+    border: 1px solid #ccc;
+    background-color: #e9ecef;
+    color: #333;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .input-group-append .btn:hover {
+    background-color: #ccc;
+  }
+  
+  /* Styling for the FontAwesome icon */
+  .input-group-append .btn i {
+    font-size: 18px;
+    color: #333;
+  }
+  
+  /* Focus state for input */
+  .input-group .form-control:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .input-group-append .btn:focus {
+    outline: none;
+  }

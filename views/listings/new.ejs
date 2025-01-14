@@ -1,0 +1,93 @@
+<% layout('/layouts/boilerplate') %>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="">
+                <form class="needs-validation" method="POST" action="/listing" novalidate enctype="multipart/form-data">
+                    <h2 class="text-center mb-4">Create New Listing</h2>
+
+                    <!-- Title -->
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" name="listing[title]" id="title" placeholder="Enter the title" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Please enter a title.
+                        </div>
+                    </div>
+
+                    <!-- Price -->
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="number" name="listing[price]" id="price" placeholder="Enter the price" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid price.
+                        </div>
+                    </div>
+
+                    <!-- Image -->
+                    <div class="form-group">
+                        <label for="image">Image</label>
+                        <input type="file" name="listing[image]" id="image" class="form-control-file" required>
+                        <div class="invalid-feedback">
+                            Please upload an image.
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea name="listing[description]" id="description" placeholder="Describe the listing" class="form-control" rows="5" required></textarea>
+                        <div class="invalid-feedback">
+                            Please provide a description.
+                        </div>
+                    </div>
+
+                    <!-- Location -->
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" name="listing[location]" id="location" placeholder="Enter the location" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Please enter a location.
+                        </div>
+                    </div>
+
+                    <!-- Country -->
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <input type="text" name="listing[country]" id="country" placeholder="Enter the country" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Please enter the country.
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary btn-block">Submit Listing</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Validation Script -->
+    <script>
+        (() => {
+            'use strict';
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.needs-validation');
+
+            // Loop over them and prevent submission if invalid
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        })();
+    </script>
+
+    <!-- Bootstrap JS and Popper.js for functionality -->

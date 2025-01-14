@@ -1,0 +1,95 @@
+<% layout('/layouts/boilerplate') %>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Edit Listing</h1>
+        <form class="needs-validation" method="POST" action="/listing/<%= listing._id %>?_method=PUT" novalidate enctype="multipart/form-data">
+            
+            <!-- Title -->
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" name="listing[title]" id="title" value="<%= listing.title %>" placeholder="Title" class="form-control" required>
+                <div class="invalid-feedback">
+                    Please enter a title.
+                </div>
+            </div>
+
+            <!-- Price -->
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="number" name="listing[price]" id="price" value="<%= listing.price %>" placeholder="Price" class="form-control" required>
+                <div class="invalid-feedback">
+                    Please enter a valid price.
+                </div>
+            </div>
+
+            <!-- Image -->
+            <div class="form-group">
+                <img src="<%= originalImageUrl %>" alt=""><br>
+                <label for="image">Upload Image</label>
+                <input class="form-control" type="file" id="image" name="listing[image]">
+                <input type="url" name="listing[image]" id="image-url" value="<%= listing.image.filename %>" placeholder="Image link (optional)" class="form-control" required>
+                <div class="invalid-feedback">
+                    Please upload an image or provide a URL.
+                </div>
+            </div>
+
+            <!-- Description -->
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea name="listing[description]" id="description" cols="30" placeholder="Description" class="form-control" required><%= listing.description %></textarea>
+                <div class="invalid-feedback">
+                    Please provide a description.
+                </div>
+            </div>
+
+            <!-- Location -->
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" name="listing[location]" id="location" value="<%= listing.location %>" placeholder="Location" class="form-control" required>
+                <div class="invalid-feedback">
+                    Please enter a location.
+                </div>
+            </div>
+
+            <!-- Country -->
+            <div class="form-group">
+                <label for="country">Country</label>
+                <input type="text" name="listing[country]" id="country" value="<%= listing.country %>" placeholder="Country" class="form-control" required>
+                <div class="invalid-feedback">
+                    Please enter the country.
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary btn-block">Edit Listing</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap Validation Script -->
+    <script>
+        (() => {
+            'use strict';
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.needs-validation');
+
+            // Loop over them and prevent submission if invalid
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        })();
+    </script>
+
+    <!-- Bootstrap JS and Popper.js for functionality -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>

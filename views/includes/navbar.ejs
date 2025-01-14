@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="/">
+            <img src="/images/logo.webp" alt="Logo" width="120" />
+        </a>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/listing">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/listing/new">Add Listing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/explore">Explore</a>
+                </li>
+            </ul>
+            <div class="container mt-5">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Location">
+                  <div class="input-group-append">
+                    <button class="btn btn-secondary" type="button">
+                      <i class="fa fa-search">Search </i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div class="dropdown ms-3">
+                <a
+                    class="btn btn-light dropdown-toggle"
+                    href="#"
+                    role="button"
+                    id="dropdownMenuLink"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                >
+                    <i class="bi bi-person-circle"></i> Profile
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="/profile">Your Profile</a></li>
+                    <% if (!currentUser) { %>
+                    <li><a class="dropdown-item" href="/login">Login</a></li>
+                    <li><a class="dropdown-item" href="/signup">Signup</a></li>
+                    <%}%>
+                    <% if (currentUser) { %>
+                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

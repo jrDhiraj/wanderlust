@@ -1,0 +1,111 @@
+<% layout('/layouts/boilerplate') %>
+<%= message %>
+
+<body>
+    <div class="filters">
+        <!-- Price Filter -->
+        <div class="filter-item">
+          <label for="price">Price</label>
+          <select id="price">
+            <option value="">Any</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+    
+        <!-- Type of Property Filter -->
+        <div class="filter-item">
+          <label for="property-type">Property Type</label>
+          <select id="property-type">
+            <option value="">Any</option>
+            <option value="apartment">Apartment</option>
+            <option value="house">House</option>
+            <option value="villa">Villa</option>
+          </select>
+        </div>
+    
+        <!-- Guests Filter -->
+        <div class="filter-item">
+          <label for="guests">Guests</label>
+          <select id="guests">
+            <option value="">Any</option>
+            <option value="1-2">1-2</option>
+            <option value="3-5">3-5</option>
+            <option value="6+">6+</option>
+          </select>
+        </div>
+
+        <!-- Apply Filters Button -->
+        <div class="filter-item">
+          <button class="apply-btn">
+            <i class="fas fa-search"></i> Apply Filters
+          </button>
+        </div>
+
+        <!-- Filters Reset Button -->
+        <div class="filter-item">
+          <button class="reset-btn">
+            <i class="fas fa-sync"></i> Reset
+          </button>
+        </div>
+    
+
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+          </div>
+      </div>
+    
+        <!-- Filters Reset Button -->
+       
+
+    <div class="container mt-5">
+        <div class="row">
+            <% for (let listing of listings) { %>
+                <div class="col-md-4 mb-4">
+                    <a href="/listing/<%= listing._id %>" class="text-decoration-none">
+                        <div class="card h-100">
+                            <!-- Image -->
+                            <img src="<%= listing.image.url %>" class="card-img-top" alt="Product Image">
+
+                            <div class="card-body">
+                                <!-- Product Description -->
+                                <h5 class="card-title"><%= listing.title %></h5>
+                                <p class="card-text"><%= listing.description %></p>
+
+                                <!-- Price Section -->
+                                <p class="card-text"><strong>Price:</strong> &#8377; <%= listing.price %> <i class="gst" style="display: none;">&nbsp; +18% GST</i></p>
+
+                                <!-- Rating Section (you can replace with actual rating logic later) -->
+                                <p class="card-text"><strong>Rating:</strong> <%= listing.rating || "N/A" %></p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <% } %>
+        </div>
+
+        <!-- New Listing Button -->
+        <!-- <div class="text-center mt-4">
+            <a href="/listing/new" class="btn btn-success">Create New Listing</a>
+        </div> -->
+    </div>
+    <script>
+        let totalTaxes = document.getElementById("flexSwitchCheckDefault")
+        totalTaxes.addEventListener("click", () =>{
+            let taxInfo = document.getElementsByClassName("gst")
+            for(Gst of taxInfo){
+               if( Gst.style.display != "inline"){
+                     Gst.style.display = "inline"
+               }else{
+                 Gst.style.display = "none"
+               }
+            }
+        })
+    </script>
+    <!-- Include Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
