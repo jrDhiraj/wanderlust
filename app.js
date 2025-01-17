@@ -4,9 +4,10 @@ const mongoose = require("mongoose");
 const path = require("path");
 const methodOverride = require('method-override');
 const engine = require('ejs-mate');
-const ExpressError = require('./utils/ExpressError');
+const ExpressError = require('./utils/expressError');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+require('dotenv').config();
 
 const flash = require('connect-flash');
 const passport = require("passport")
@@ -32,15 +33,14 @@ app.use(express.json()); // Parse JSON bodies
 
 
 // Connect to MongoDB
-const atlsDB = process.env.DATA_BASE;
+const atlsDB = process.env.DATA_BASE
+// const atlsDB = process.env.DATA_BASE;
 main().then(() => {
     console.log("Connected to DB");
-}).catch(err => console.log("This is error", err));
-
+}).catch(err => console.log("This is error", err))
 async function main() {
-    await mongoose.connect(atlsDB);
+    await mongoose.connect(atlsDB)
 }
-
 const store = MongoStore.create({
     mongoUrl: atlsDB,
     crypto:{
@@ -54,7 +54,7 @@ store.on("error", function(e){
 });
 // Session and Flash Middleware setup (order is important)
 const sessionOption = {
-    store,
+    // store,
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
