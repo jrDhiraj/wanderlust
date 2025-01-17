@@ -1,72 +1,49 @@
 <% layout('/layouts/boilerplate') %>
-
 <body>
-    <div class="container mt-4">
-
         <!-- Show Section with Image and Title -->
-        <div class="show mb-4">
-            <div class="header-of-img mb-4">
-                <div class="main">
-                    <div class="show-title">
-                        <h1 class="text-center text-primary"><%= listing.title %></h1>
-                    </div>
-                </div>
-                
-                <div class="main">
-                    <div class="show-img text-center">
-                        <img src="<%= listing.image.url %>" alt="Listing Image" class="img-fluid" width="500px">
-                    </div>
-                </div>
+<div class="section-frist">
 
-                <div class="main">
-                    <div class="show-img">
-                        <p class="text-muted">Own by: <%= listing.owner.username %></p>
-                    </div>
-                </div>
+    <div class="show">
+        <div class="show-title">
+            <h2 class="text-center text-primary"><%= listing.title %></h2>
+            <div class="show-img">
+                <img src="<%= listing.image.url %>" alt="Listing Image" class="img-fluid" width="500px">
             </div>
-        
-            <!-- Listing Information Section -->
-            <div class="information mt-5">
+            <p class="text-muted">Own by: <%= listing.owner.username %></p>
+        </div>              
+        <div class="main-details">
                 <h2 class="text-info">Details</h2>
-
-                <div class="main">
-                    <div class="show-desc">
-                        <p><b>Description:</b> <%= listing.description %></p>
-                    </div>
+                <div class="show-desc">
+                    <p><b>Description:</b> <%= listing.description %></p>
                 </div>
-                
-                <div class="main">
-                    <div class="show-location">
-                        <p><b>Location:</b> <%= listing.location %></p>
-                    </div>
+                <div class="show-location">
+                    <p><b>Location:</b> <%= listing.location %></p>
                 </div>
-                
-                <div class="main">
-                    <div class="show-country">
-                        <p><b>Country:</b> <%= listing.country %></p>
-                    </div>
+                <div class="show-country">
+                    <p><b>Country:</b> <%= listing.country %></p>
                 </div>
-                
-                <div class="main">
-                    <div class="show-price">
-                        <p><b>Price:</b> &#8377; <%= listing.price %></p>
-                    </div>
+                <div class="show-price">
+                    <p><b>Price:</b> &#8377; <%= listing.price %></p>
                 </div>
 
-                <% if (currentUser && currentUser._id.equals(listing.owner._id)) { %>
-                    <div class="btn-delete mt-4">
-                        <a href="/listing/<%= listing._id %>/edit" class="btn btn-warning btn-sm mr-2">Edit</a>
-                        <form method="POST" action="/listing/<%= listing._id %>?_method=DELETE" style="display:inline;">
-                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                        </form>                
-                    </div>
-                <% } %>
+        </div>        
+        <div class="button-for-edit-or-delete">
+            <% if (currentUser && currentUser._id.equals(listing.owner._id)) { %>
+                <button>
+                    <a href="/listing/<%= listing._id %>/edit" class="btn btn-warning btn-sm mr-2">Edit</a>
+                </button>
+                <form method="POST" action="/listing/<%= listing._id %>?_method=DELETE" style="display:inline;">
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>                
+            <% } %>
             </div>
+    </div>   
 
-            <% if (currentUser) { %>
-                
-                <!-- Review Form Section -->
-                <div class="review">
+    <div class="section-second">
+        <% if (currentUser) { %>   
+            <!-- Review Form Section -->
+            <div class="do-review">
+                <div class="review-group">
                     <form action="/listing/<%= listing._id %>/review" method="POST" class="review-form">
                         <!-- Rating -->
                         <div class="form-group">
@@ -84,37 +61,39 @@
                                 <label for="first-rate5" title="Amazing">5 stars</label>
                             </fieldset>
                         </div>
-
+        
                         <!-- Comment -->
                         <div class="form-group">
                             <label for="comment">Comment:</label>
                             <textarea id="comment" name="review[comment]" rows="4" class="form-control" placeholder="Write your comment here..."></textarea>
                         </div>
-
+        
                         <!-- Submit -->
                         <button type="submit" class="btn btn-primary">Submit Review</button>
                     </form> 
                 </div>
-            </div>
             <% } %>
-        </div>
-
-        <!-- Reviews Section -->
-       <div class="reviews"><h2>Reviews</h2></div>
-        <div class="review mt-3">
-            
-            <% for (let review of listing.review) { %>
-                <div class="card mb-3" style="max-width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">@<%= review.author.username %></h5>
-                        <p class="starability-result card-text" data-rating="<%= review.rating %>"></p>
-                        <p class="card-text"><%= review.comment %></p>
-                        <form class="btn" action="/listing/<%= listing._id %>/review/<%= review._id %>?_method=DELETE" method="POST" style="display:inline;">
-                            <button class="btn btn-danger btn-sm">Delete</button>
-                        </form> 
-                    </div>
-                </div>
-            <% } %>    
-        </div>
+                <!-- Reviews Section -->
+                <div class="show-reviews">
+                    <div class="comment"><h2>comments</h2></div>
+                    <% for (let review of listing.review) { %>
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">@<%= review.author.username %></h5>
+                                <p class="starability-result card-text" data-rating="<%= review.rating %>"></p>
+                                <p class="card-text"><%= review.comment %></p>
+                                <form action="/listing/<%= listing._id %>/review/<%= review._id %>?_method=DELETE" method="POST" style="display:inline;">
+                                    <button class="btn">Delete</button>
+                                </form> 
+                            </div>
+                        </div>
+                    <% } %>    
+            </div>
     </div>
+
+</div>
+
+
+
+       
 </body>

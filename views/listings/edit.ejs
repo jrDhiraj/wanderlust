@@ -1,8 +1,9 @@
 <% layout('/layouts/boilerplate') %>
 
 <body>
-    <div class="container mt-5">
-        <h1 class="text-center mb-4">Edit Listing</h1>
+    <h1 class="text-center mt-5 sm">Edit listing</h1>
+    <div class="container-edit mt-5">
+        <!-- <div class="heading"><h1 class="text-center mb-4">Edit Listing</h1></div> -->
         <form class="needs-validation" method="POST" action="/listing/<%= listing._id %>?_method=PUT" novalidate enctype="multipart/form-data">
             
             <!-- Title -->
@@ -14,27 +15,6 @@
                 </div>
             </div>
 
-            <!-- Price -->
-            <div class="form-group">
-                <label for="price">Price</label>
-                <input type="number" name="listing[price]" id="price" value="<%= listing.price %>" placeholder="Price" class="form-control" required>
-                <div class="invalid-feedback">
-                    Please enter a valid price.
-                </div>
-            </div>
-
-            <!-- Image -->
-            <div class="form-group">
-                <img src="<%= originalImageUrl %>" alt=""><br>
-                <label for="image">Upload Image</label>
-                <input class="form-control" type="file" id="image" name="listing[image]">
-                <input type="url" name="listing[image]" id="image-url" value="<%= listing.image.filename %>" placeholder="Image link (optional)" class="form-control" required>
-                <div class="invalid-feedback">
-                    Please upload an image or provide a URL.
-                </div>
-            </div>
-
-            <!-- Description -->
             <div class="form-group">
                 <label for="description">Description</label>
                 <textarea name="listing[description]" id="description" cols="30" placeholder="Description" class="form-control" required><%= listing.description %></textarea>
@@ -60,9 +40,41 @@
                     Please enter the country.
                 </div>
             </div>
+            <div class="stable-imge-and-price">
+                <div class="imge">
+                    <img src="<%= originalImageUrl %>" alt="">
+                </div>
+                <div class="price-and-image-upload">
+                    <div class="use-for-do-upper">
+                        <div class="form-group">
+                            <label for="price">Price</label>
+                            <input type="number" name="listing[price]" id="price" value="<%= listing.price %>" placeholder="Price" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid price.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="image">Upload Image</label>
+                            <input class="form-control" type="file" id="image" name="listing[image]">
+                            <div class="invalid-feedback">
+                                Please upload an image or provide a URL.
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="use-for-do-lower">
+                        <input type="url" name="listing[image]" id="image-url" value="<%= listing.image.filename %>" placeholder="Image link (optional)" class="form-control" required>
+
+                    </div>
+                    
+        
+                    <!-- Image -->
+                    
+                </div>
+            </div>
 
             <!-- Submit Button -->
-            <button type="submit" class="btn btn-primary btn-block">Edit Listing</button>
+            <button type="submit" class="btn btn-block">Edit Listing</button>
         </form>
     </div>
 

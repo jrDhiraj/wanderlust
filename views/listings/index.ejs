@@ -37,30 +37,33 @@
         </div>
 
         <!-- Apply Filters Button -->
-        <div class="filter-item">
-          <button class="apply-btn">
-            <i class="fas fa-search"></i> Apply Filters
-          </button>
-        </div>
-
-        <!-- Filters Reset Button -->
-        <div class="filter-item">
-          <button class="reset-btn">
-            <i class="fas fa-sync"></i> Reset
-          </button>
-        </div>
-    
-
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+        <div class="apply-reset">
+          <div class="filter-item">
+            <button class="apply">
+              <i class="fas fa-search"></i> Apply
+            </button>
           </div>
-      </div>
+  
+          <!-- Filters Reset Button -->
+          <div class="filter-item">
+            <button class="reset">
+              <i class="fas fa-sync"></i> Reset
+            </button>
+          </div>
+        </div>
+    
+
+       <div class="chek-box">
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Include GST</label>
+          </div>
+       </div>
     
         <!-- Filters Reset Button -->
-       
+     </div>  
 
-    <div class="container mt-5">
+    <div class="card-container mt-2">
         <div class="row">
             <% for (let listing of listings) { %>
                 <div class="col-md-4 mb-4">

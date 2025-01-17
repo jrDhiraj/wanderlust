@@ -1,9 +1,7 @@
 <% layout('/layouts/boilerplate') %>
 
 <body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="">
+    <div class="container-new">
                 <form class="needs-validation" method="POST" action="/listing" novalidate enctype="multipart/form-data">
                     <h2 class="text-center mb-4">Create New Listing</h2>
 
@@ -26,8 +24,8 @@
                     </div>
 
                     <!-- Image -->
-                    <div class="form-group">
-                        <label for="image">Image</label>
+                    <div class="form-group image-upload">
+                        <label for="image">Upload Image</label>
                         <input type="file" name="listing[image]" id="image" class="form-control-file" required>
                         <div class="invalid-feedback">
                             Please upload an image.
@@ -62,10 +60,9 @@
                     </div>
 
                     <!-- Submit Button -->
-                    <button type="submit" class="btn btn-primary btn-block">Submit Listing</button>
+                    <button type="submit" class="btn btn-block">Submit Listing</button>
                 </form>
-            </div>
-        </div>
+
     </div>
 
     <!-- Bootstrap Validation Script -->
